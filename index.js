@@ -3,11 +3,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './containers/App';
-
-// const store = configureStore();
+import configureStore from './store/configureStore';
 
 const $el = document.getElementById('root');
+const store = configureStore();
 
 render( 
-	<App todos={[{"text": "Lallalalala", "id": 1}]}/>, $el
+	<Provider store={store}>
+		<App />
+	</Provider>
+	, $el
 )
