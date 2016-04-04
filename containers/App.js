@@ -6,7 +6,6 @@ import MainSection from '../components/MainSection';
 class App extends Component {
 	render() {
 		const {todos} = this.props;
-		console.log("APP", todos)
 		return (
 			<div>
 				<MainSection todos={todos} />

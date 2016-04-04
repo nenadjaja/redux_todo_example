@@ -8,7 +8,6 @@ class MainSection extends Component {
 
 	render() {
 		const { todos } = this.props;
-		console.log("MY TODOS", todos)
 		return (
 			<section>
 				<ul>
