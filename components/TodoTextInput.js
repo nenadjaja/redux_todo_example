@@ -13,13 +13,22 @@ class TodoTextInput extends Component {
 		this.setState({ text: e.target.value });
 	}
 
+	// store the note
+	handleSubmit(e) {
+		const text = e.target.value.trim();
+		if (e.which === 13) {
+			this.props.onSave(text);
+		}
+	}
+
 	render() {
 		return (
 			<input type="text" 
 				placeholder={this.props.placeholder}
 				autoFocus="true"
 				value={this.state.text}
-				onChange={this.handleChange.bind(this)} />
+				onChange={this.handleChange.bind(this)}
+				onKeyDown={this.handleSubmit.bind(this)} />
 		)
 	}
 }
