@@ -18,7 +18,18 @@ class TodoTextInput extends Component {
 		const text = e.target.value.trim();
 		if (e.which === 13) {
 			this.props.onSave(text);
+
+			if (this.props.newTodo) {
+				this.setState({ text: '' });
+			}
 		}
+	}
+
+	handleBlur(e) {
+		if (!this.props.newTodo) {
+			this.setState({ text: e.target.value })
+		}
+
 	}
 
 	render() {
@@ -28,7 +39,8 @@ class TodoTextInput extends Component {
 				autoFocus="true"
 				value={this.state.text}
 				onChange={this.handleChange.bind(this)}
-				onKeyDown={this.handleSubmit.bind(this)} />
+				onKeyDown={this.handleSubmit.bind(this)}
+				onBlur={this.handleBlur.bind(this)} />
 		)
 	}
 }
@@ -36,7 +48,8 @@ class TodoTextInput extends Component {
 // set properties
 TodoTextInput.propTypes = {
 	text: PropTypes.string,
-	placeholder: PropTypes.string
+	placeholder: PropTypes.string,
+	onSave: PropTypes.func.isRequired
 }
 
 export default TodoTextInput

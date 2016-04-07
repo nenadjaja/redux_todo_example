@@ -4,23 +4,33 @@ import TodoTextInput from './TodoTextInput';
 class TodoItem extends Component {
 	constructor(props, context) {
 		super(props, context);
-		this.state = {
-			editing: false
+	}
+
+	handleSave(text) {
+		if (text.length === 0) {
+			this.props.deleteTodo;
+		} else {
+			this.props.editTodo;
 		}
 	}
 
-	handleDoubleClick() {
-		this.setState({ editing: true });
-	}
-
 	render() {
-		const { todo } = this.props;
-		let element = <TodoTextInput text={todo.text} />
+		const { todo, deleteTodo } = this.props;
+		let element = <TodoTextInput text={todo.text} onSave={(text) => this.handleSave(todo.id.text)}/>
 		
 		return (
-			<li>{element}</li>
+			<li>
+				{element}
+				<button onClick={() => deleteTodo(todo.id)}>Delete</button>
+			</li>
 		)
 	}
 }
+
+TodoItem.PropTypes = {
+	todo: PropTypes.object.isRequired,
+	deleteTodo: PropTypes.func.isRequired
+}
+
 
 export default TodoItem

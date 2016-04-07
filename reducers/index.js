@@ -22,7 +22,11 @@ function todos(state = initialState, action) {
 		case ActionTypes.EDIT_TODO:
 			return state;
 		case ActionTypes.DELETE_TODO:
-			return state;
+			console.log("DELETE")
+			console.log(action)
+			return state.filter(todo => 
+				todo.id !== action.id
+			);
 		default:
 			return state;
 	}

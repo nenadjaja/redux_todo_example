@@ -7,12 +7,12 @@ class MainSection extends Component {
 	}
 
 	render() {
-		const { todos } = this.props;
+		const { todos, actions } = this.props;
 		return (
 			<section>
 				<ul>
 					{todos.map(todo => 
-						<TodoItem todo={todo} key={todo.id} />
+						<TodoItem todo={todo} key={todo.id} deleteTodo={actions.deleteTodo} />
 					)}
 				</ul>
 			</section>
