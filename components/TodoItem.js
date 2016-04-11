@@ -16,7 +16,7 @@ class TodoItem extends Component {
 
 	render() {
 		const { todo, deleteTodo } = this.props;
-		let element = <TodoTextInput text={todo.text} onSave={(text) => this.handleSave(todo.id.text)}/>
+		let element = <TodoTextInput text={todo.text} onSave={(text) => this.handleSave(text)}/>
 		
 		return (
 			<li>
