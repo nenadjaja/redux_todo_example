@@ -15,14 +15,18 @@ class TodoItem extends Component {
 	}
 
 	render() {
-		const { todo, deleteTodo } = this.props;
+		const { todo, deleteTodo, completeTodo } = this.props;
 		let element = <TodoTextInput text={todo.text} 
 										onSave={(text) => this.handleSave(todo.id, text)}/>
-		
+		const completed = todo.completed ? 'completed' : 'editing'
 		return (
-			<li>
+			<li className="todo-item">
+				<div className={completed}>
+				<input type="checkbox" className="checkbox"
+							checked={todo.completed} onChange={() => completeTodo(todo.id)}/>
 				{element}
 				<button onClick={() => deleteTodo(todo.id)}>Delete</button>
+				</div>
 			</li>
 		)
 	}

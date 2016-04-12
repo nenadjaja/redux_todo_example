@@ -11,3 +11,7 @@ export function editTodo(id, text) {
 export function deleteTodo(id) {
 	return { type: ActionTypes.DELETE_TODO, id }
 }
+
+export function completeTodo(id) {
+	return { type: ActionTypes.COMPLETE_TODO, id }
+}

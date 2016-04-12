@@ -32,9 +32,18 @@ class TodoTextInput extends Component {
 
 	}
 
+	completed() {
+		if (this.state.completed) {
+			return 'completed'
+		} else {
+			return 'editing'
+		}
+	}
+
 	render() {
 		return (
-			<input type="text" 
+			<input className="todo-input"
+				type="text" 
 				placeholder={this.props.placeholder}
 				autoFocus="true"
 				value={this.state.text}
