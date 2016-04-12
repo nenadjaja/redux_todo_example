@@ -12,7 +12,7 @@ class MainSection extends Component {
 			<section>
 				<ul>
 					{todos.map(todo => 
-						<TodoItem todo={todo} key={todo.id} deleteTodo={actions.deleteTodo} />
+						<TodoItem todo={todo} key={todo.id} {...actions} />
 					)}
 				</ul>
 			</section>

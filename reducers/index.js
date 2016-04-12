@@ -10,7 +10,6 @@ const initialState = [{
 function todos(state = initialState, action) {
 	switch (action.type) {
 		case ActionTypes.ADD_TODO:
-      console.log("State length: ", state.length)
 			return [
 				...state,
 				{
@@ -20,7 +19,13 @@ function todos(state = initialState, action) {
 				}
 			];
 		case ActionTypes.EDIT_TODO:
-			return state;
+			return state.map(todo => {
+        if (todo.id === action.id) {
+          return Object.assign({}, todo, { text: action.text }) 
+        } else {
+          return todo
+        }
+      });
 		case ActionTypes.DELETE_TODO:
 			return state.filter(todo => 
 				todo.id !== action.id

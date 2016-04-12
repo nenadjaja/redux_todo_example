@@ -4,8 +4,8 @@ export function addTodo(text) {
 	return { type: ActionTypes.ADD_TODO, text }
 }
 
-export function editTodo(text) {
-	return { type: ActionTypes.EDIT_TODO, text }
+export function editTodo(id, text) {
+	return { type: ActionTypes.EDIT_TODO, id, text }
 }
 
 export function deleteTodo(id) {

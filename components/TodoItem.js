@@ -6,17 +6,18 @@ class TodoItem extends Component {
 		super(props, context);
 	}
 
-	handleSave(text) {
+	handleSave(id, text) {
 		if (text.length === 0) {
-			this.props.deleteTodo;
+			this.props.deleteTodo(id);
 		} else {
-			this.props.editTodo;
+			this.props.editTodo(id, text);
 		}
 	}
 
 	render() {
 		const { todo, deleteTodo } = this.props;
-		let element = <TodoTextInput text={todo.text} onSave={(text) => this.handleSave(text)}/>
+		let element = <TodoTextInput text={todo.text} 
+										onSave={(text) => this.handleSave(todo.id, text)}/>
 		
 		return (
 			<li>
