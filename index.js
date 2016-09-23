@@ -9,8 +9,8 @@ const $el = document.getElementById('root');
 const store = configureStore();
 
 render( 
-	<Provider store={store}>
-		<App />
-	</Provider>
-	, $el
+  <Provider store={store}>
+    <App />
+  </Provider>
+  , $el
 )

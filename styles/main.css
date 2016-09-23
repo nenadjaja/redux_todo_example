@@ -1,16 +1,16 @@
 body {
-	font-family: Verdana, Helvetica, sans-serif;
+  font-family: Verdana, Helvetica, sans-serif;
 }
 
 li.todo-item {
-	list-style: none;
+  list-style: none;
 }
 
 li.todo-item .checkbox {
-	width: 18px;
-	height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .completed .todo-input {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
